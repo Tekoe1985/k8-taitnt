@@ -1,0 +1,20 @@
+# pod-with-toleration1.yaml
+#
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserver
+  namespace: geolocation
+spec:
+  containers:
+    - name: webserver
+      image: httpd
+      ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+  tolerations:
+  - key: "color"
+    operator: "Equal"
+    value: "pink"
+    effect: "NoSchedule"
